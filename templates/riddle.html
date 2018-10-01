@@ -1,0 +1,33 @@
+{% extends 'base.html' %} {% block content %}
+<!-- Page Content -->
+<div class="container main-wrapper mt-4">
+
+    <div class="row">
+        <section class="one container">
+            <div class="jumbotron my-4 main-display">
+                <h1 class="display-3">Welcome
+                    <small>{{ username|capitalize }}!</small>
+                    <small class="score" value='0'></small>
+                </h1>
+                <p class="main-para">Below is a riddle to solve. Once correct you will be shown a new riddle. Guess them correctly and earn a point.Incorrect guesses will loose a point. Finish the game and become top of the leaderboard.</p>
+
+                <p>You have completed ! </p>
+                <p class="question"></p>
+
+                <div class="riddle-display-box mt-4 col-lg-12">
+
+                    <form method="POST" class="guess-form">
+                        <input type="text" name="guess" class="guess" placeholder="click here to type your guess.." required>
+                        <input class="guess-Btn" type="submit" value="Try guess">
+                    </form>
+                </div>
+            </div>
+            <div class="container">
+                <button class="reveal">Stuck on the current riddle?? click here to reveal previous attempts.</button>
+                <div class="reveal-box">
+                </div>
+            </div>
+        </section>
+    </div>
+</div>
+{% endblock %}

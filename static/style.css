@@ -61,3 +61,34 @@ body {
   margin: 45px auto 0 auto !important;
   padding-top: 10px !important;
 }
+.reveal-box {
+  text-align: center;
+  max-height: 200px;
+  overflow: auto;
+  display: none;
+  transition: 0.4s all;
+}
+.reveal-box-active {
+  display: block;
+  transition: 0.4s all;
+}
+.reveal {
+  background-color: #343a40;
+  color: white;
+  border-radius: 5px;
+  margin: 30px auto;
+  display: inherit;
+}
+
+
+/*<-------------- FOOTER -------------------->*/
+
+.footer {
+  background-color: #212529;
+  color: white;
+  height: 25px;
+  text-align: center;
+  margin-top: 50px;
+  position: fixed;
+  bottom: 0;
+}
