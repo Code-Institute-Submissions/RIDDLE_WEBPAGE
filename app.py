@@ -1,4 +1,5 @@
 import os 
+import json
 from flask import Flask, render_template, request, redirect, flash, url_for
 
 app = Flask(__name__)
@@ -9,6 +10,9 @@ def write_to_file(filename, data):
         file.writelines(data)
 
 
+# <------------ global variables ---------->
+
+leaderboard_score = {}
 
 
 # <-------------------- LOGIN PAGE ---------------------->
@@ -19,6 +23,8 @@ def index():
     if request.method == "POST":
         username = request.form["username"]
         write_to_file("data/users.txt", username + "\n")
+        leaderboard_score[username] = 0
+         
          
          
         return render_template("riddle.html", username=username)
@@ -30,10 +36,14 @@ def index():
 
 @app.route('/<username>/riddle/', methods=["POST", "GET"])
 def riddle():
+    print(leaderboard_score)
+    
+    with open("data/riddle.json", "r") as json_data:
+        data = json.load(json_data)
 
   
     
-    return render_template("riddle.html")
+    return render_template("riddle.html", data=data)
 
 
 
