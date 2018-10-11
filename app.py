@@ -101,6 +101,7 @@ def riddle(username):
                 correct_guess(username)
         else:
             incorrect_guess(username, guess)
+            guesses = display_guesses()
         
     
     return render_template("riddle.html", username=username,data=data,current=current_riddle[username], riddle_length=length, score=leaderboard_score[username], guess=guesses)

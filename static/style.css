@@ -117,6 +117,7 @@ body {
 }
 .guess-Btn {
   display: block;
+  background-color: #55b0ed;
   margin: auto;
   width: 200px;
   border-radius: 5px;
