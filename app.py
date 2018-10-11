@@ -4,6 +4,7 @@ import json
 from flask import Flask, render_template, request, redirect, flash, url_for
 
 app = Flask(__name__)
+app.secret_key = 'some_big_secret'
 
 # <------------- FILE HANDLER --------------->
 
@@ -18,9 +19,10 @@ def display_guesses():
     guesses = []
     with open("data/new_guesses.csv", "r") as guess_data:
         all_guesses = csv.reader(guess_data)
+        
         for lines in all_guesses:
             guesses.append(lines)
-    
+            
     return guesses
     
 def add_guesses(username, request):
@@ -33,7 +35,7 @@ def add_guesses(username, request):
         writer.writerow(guess)
         
         
-# <---------- HANDLES FOR CORRECT AND INCORRECT GUESSES ---------->
+# <---------- HANDLES FOR CORRECT / INCORRECT GUESSES / LEADERBOARD ---------->
 
 def correct_guess(username):
     
@@ -62,6 +64,7 @@ current_riddle = {}
 @app.route("/")
 @app.route ("/", methods=["POST", "GET"])
 def index():
+
     if request.method == "POST":
         username = request.form["username"]
         write_to_file("data/users.txt", username + "\n")
@@ -69,7 +72,7 @@ def index():
         current_riddle[username] = 0
          
         return redirect(url_for("riddle", username=username))
-        
+    
     return render_template("index.html")
     
 
@@ -83,19 +86,78 @@ def riddle(username):
         data = json.load(json_data)
         
     length = len(data)
-    guess = display_guesses()
-
+    
+    guesses = display_guesses()
+    
     if request.method == "POST":
+        
         guess = request.form["guess"]
         
         if guess.upper() == data[current_riddle[username]]["answer"].upper():
-            correct_guess(username)
+            if length == current_riddle[username] + 1:
+                write_to_file("data/leaderboard.csv", username  + "," + str(leaderboard_score[username] +1) +  "\n")
+                return redirect(url_for("endgame", username=username))
+            else:
+                correct_guess(username)
         else:
             incorrect_guess(username, guess)
         
     
-    return render_template("riddle.html", username=username,data=data,current=current_riddle[username], riddle_length=length, score=leaderboard_score[username], guess=guess)
+    return render_template("riddle.html", username=username,data=data,current=current_riddle[username], riddle_length=length, score=leaderboard_score[username], guess=guesses)
 
+# <-------------- ADDING YOUR OWN RIDDLES -------------->
+
+@app.route('/addriddle', methods=["POST","GET"])
+def add_riddle():
+    
+    riddles = []
+
+    with open("data/riddle.json", "r") as json_data:
+        data = json.load(json_data)
+        for lines in data:
+            riddles.append(lines)
+
+    if request.method == "POST":
+        flash("Your riddle has been uploaded, thank you! ")
+        riddle = {"riddle": request.form["form-question"].replace(",", ""),"answer": request.form["form-answer"].replace(",", "")}
+
+        riddles.append(riddle)
+
+        with open("data/riddle.json", "w") as json_data:    
+            json.dump(riddles,json_data, indent=4)
+
+    return render_template("add_riddle.html")
+    
+    
+# <--------------- END OF GAME / LEADERBOARD -------------->
+
+@app.route("/leaderboard")
+def leaderboard():
+    
+    peoples_score = []
+    
+    with open("data/leaderboard.csv", "r") as csv_file:
+        csv_reader = csv.reader(csv_file)    
+        
+        for data in csv_reader:
+            peoples_score.append(tuple(data))
+            
+    sorted_final_scores = (sorted(peoples_score, key=lambda people: int(people[1]), reverse=True))
+    
+    if len(peoples_score) == 0:
+        sorted_final_scores = 0
+        return render_template("leaderboard.html", score=sorted_final_scores)
+    else:
+        return render_template("leaderboard.html", score=sorted_final_scores)
+
+    
+
+@app.route("/<username>/riddle/endgame/")
+def endgame(username):
+
+    return render_template("endgame.html", username=username)
+    
+    
 if __name__ == '__main__':
     app.run(host=os.environ.get('IP'),
     port=int(os.environ.get('PORT')),

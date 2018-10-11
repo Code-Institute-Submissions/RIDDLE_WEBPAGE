@@ -1,0 +1,15 @@
+{% extends "base.html" %}
+{% block content %}
+
+<div class="container main-display congrats-main">
+    <div class="row">
+        <h4 class="congrats"> Congratulations</h4>
+        <h4 class="congrats">{{ username|capitalize }}</h4>
+        <p class="congrats-para"> You have completed all the riddles, your score has been uploaded onto the leaderboard.</p>
+
+        <a class="btn btn-success guess-Btn" href= {{ url_for("index") }}>Play Again</a>
+    </div>
+</div>
+
+
+{% endblock %}

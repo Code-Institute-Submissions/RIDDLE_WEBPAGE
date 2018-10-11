@@ -2,20 +2,19 @@
 <html lang="en">
 
 <head>
-
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-   
 
     <title>Riddle Game</title>
 
+    <!-- Bootstrap core CSS -->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/css/bootstrap.min.css" integrity="sha384-9gVQ4dYFwwWSjIDZnLEWnxCjeSWFphJiwGPXr1jddIhOegiu1FwO5qRGvFXOdJZ4"
         crossorigin="anonymous">
-    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}" type="text/css"/>
-
+    <!-- Custom styles for this template -->
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}" type="text/css" />
 </head>
 
-<body class="backgroundImage main-login">
+<body>
     <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
         <div class="container">
             <a class="navbar-brand" href="#">Solve The Riddle's</a>
@@ -26,24 +25,34 @@
             <div class="collapse navbar-collapse" id="navbarResponsive">
                 <ul class="navbar-nav ml-auto">
                     <li class="nav-item">
-                        <a class="nav-link" href="{{ url_for( 'leaderboard') }}">LeaderBoard</a>
-                        <a class="nav-link" href="{{ url_for( 'add_riddle') }}">Add your own Riddle</a>
+                        <a class="nav-link" href= {{ url_for( "index") }}>Lets Play!!</a>
                     </li>
                 </ul>
             </div>
         </div>
     </nav>
-    
-    
-    <form method="POST" class="form-signin">
-        <img class="mb-4 main-image" src="https://appcheating.com/wp-content/uploads/2016/02/Guess-the-Riddle.png" alt="" width="200" height="200">
-        <h1 class="h3 mb-3 font-weight-normal">Please Enter Username</h1>
-        <label for="username" name="username" class="sr-only"></label>
-        <input type="text" id="username" name="username" class="form-control" required autofocus>
-        </div>
-        <button class="btn btn-lg btn-dark btn-block mt-3" type="submit">Let's Play!!</button>
-    </form>
-   
+    <div class="form-riddle">
+        <form method="POST" class="riddle-form">
+            <p class="add-riddle-one">Think you have a riddle that people wont be able to guess.</p>
+            <p class="add-riddle-two">Then please enter it below in the fields provided.</p>
+            <div class="form-group riddle-input">
+                <label for="question-input">Whats the question to the riddle??</label>
+                <input type="text" class="form-control" name="form-question" placeholder="Enter the question here.." required>
+            </div>
+            <div class="form-group riddle-input">
+                <label for="answer-input">Whats the answer to your riddle??</label>
+                <input type="text" class="form-control" name="form-answer" placeholder="Enter the question here.." required>
+            </div>
+            <button class="btn btn-lg btn-dark btn-block mt-3 riddle-Btn" type="submit">Add your riddle to the collection!!</button>
+            {% with messages = get_flashed_messages() %} 
+                {% if messages %} 
+                    {% for message in messages %}
+                        <h4 class="flash-msg">{{ message }}</h4>
+                    {% endfor %} 
+                {% endif %} 
+            {% endwith %}
+        </form>
+    </div>
 
     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
         crossorigin="anonymous"></script>
