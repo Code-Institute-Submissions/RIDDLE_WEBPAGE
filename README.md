@@ -26,6 +26,9 @@ Flask is a micro framework used for my webpage.
 From flask I imported the following - Flask, render_template, request, redirect, flash and url_for.
 These help with url routing and templates being rendered once redirected by the webpage. Flash is used to display messages and request handles GET and POST requests from forms within my webpage.
 
+*Play the game below by clicking link*
+[Play game!!](https://riddle-game-milestone-project.herokuapp.com/)
+
 
 
 
