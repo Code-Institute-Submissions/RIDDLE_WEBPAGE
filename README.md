@@ -13,7 +13,7 @@ Once your brought to the webpage you are prompted to enter a username and login.
 VS code was the editior I chose to use. Plugins used where live server, markdown preview, python linting and python.
 
 **2.** *Heroku for deployment*
-Heroku was the website we had to use for deployment. Uploaded my code from github to cloud9 and installed requirements.txt and Procfile so heroku could read the file was python and the requirements needed.
+Heroku was the website we had to use for deployment. Uploaded my code from cloud9, installed requirements.txt and Procfile so heroku could read the file was python and the requirements needed.
 
 **3.** *Python3 / HTML / CSS / Javascript*
 Python3 - Version 3.6.5
