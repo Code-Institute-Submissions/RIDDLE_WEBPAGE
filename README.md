@@ -1,43 +1,51 @@
-# Milestone project - Riddle Game
+## Riddle Game Milestone Project
+
+#Riddle Game 
 
 
-### 1. Design
-The frontend of my design is from BootStrap using there reponsive layout design and flexbox for displaying the content. I used Python for handling the backend of the webpage, handling POST and GET requests from forms and retrieving data from CSV files and JSON files when needed. 
+[Play the Riddle Game]( https://riddle-game-milestone-project.herokuapp.com/)
 
-### 2. How the game works
+The Riddle Game webpage was created for a fun way of trying to guess riddles and have been created by others. Each correct guess you will be awarded with 1 point and any incorrect guesses you will be deducted 1 point.
+Previous guesses are displayed in a drop down section for help. Once all riddles have been correctly guessed your name and score will be uploaded to a leaderboard.
+If you can think of any riddles that other people would enjoy you can simply add them to the webpage by clicking on the link in the navbar and fill out the form provided.
 
-Once your webpage has loaded you are prompted to enter a username for logging in. Your username is then stored in a txt file and you are directed to the main riddle page where you are shown a riddle to guess. Wrong guesses will result in 1 point being deducted from your score and your guess will be stored and displayed at the bottom of the page when you click on the button to see previous guesses. Right guesses will increment your score by 1 and move you onto the next riddle. You have a display for the lengh of riddles remaining just below the main riddle so you know how far you have to go to be scored for the leaderboard. If you have a riddle that you wish to share with others then you can add this to our collection for others to guess. A quicksort Algorithm is used to sort through the leaderboard CSV file and display them in a an acending order.
+ 
+## Website Functionality
 
-### 3. Software used
+Riddle game is a fun game where you can try and guess a riddle that is displayed on the screen.
 
-**1.** *Cloud 9*  
-Cloud 9 is IDE for writing, running, and debugging code.
+How does the Riddle game work : 
 
-**2.** *Heroku for deployment*
-Heroku was used for deployment. Uploaded my code from cloud9, installed requirements.txt and Procfile so heroku could read the file was python and the requirements needed.
-
-**3.** *Python3 / HTML / CSS / Javascript*
-Python3 - Version 3.6.5
-HTML - Used both a base html file to be used across my templates and standard HTML layout for the templates that were not using base.html.
-CSS - Used CSS for all my styling of the webpage.
-Javascript - Very small amount of Javascript used for button operations.
-
-**4.** *Flask*
-Flask is a micro framework used for my webpage. 
-From flask I imported the following - Flask, render_template, request, redirect, flash and url_for.
-These help with url routing and templates being rendered once redirected by the webpage. Flash is used to display messages and request handles GET and POST requests from forms within my webpage.
-
-### 4. Testing
-Chrome developer tools was used for testing, if there was anything wrong with my html, css or javascript files I would be alerted quickly. 
-Another powerful test tool is flasks jinja error page that appeared when errors where detected, quickly by either stopping my webpage from loading in the browser or not loading a render_template request.
-
-### 5. Play the riddle game 
-
-**Play the game below by clicking link**
-[Play game!!]
-(https://riddle-game-milestone-project.herokuapp.com/)
+ 1. Login to the webpage throught the login screen.
+ 2. Once logged in you are brought the the main webpage. A single riddle is displayed in a box with an input bar undearneath for your guesses.
+ 3. Any correct guesses you are awarded with 1 point and any incorrect guesses you loose 1 point. Your score is displayed next to your name thoroughout.
+ 4. Once all riddles have been correctly guesses your score is unloaded to the leaderboard.
+ 5. Any riddles that you would like to add can be done by clicking on the link in the navbar and fill out the form provided.
 
 
+## Technologies Used
+
+- [Cloud9](https://c9.io/login)
+    - **Cloud9** was the chosen IDE (integrated development environment) which is an online program based program. Can be easily accessed from any machine with a login and password. 
+
+- [Python](https://www.python.org/)
+    -  **Python**  was the chosen language used to write Little Recipes webpage. Python is a powerful programming language with many builtin functions and extensions. 
+
+- [Bootstrap](http://getbootstrap.com/)
+    - The project uses **Bootstrap**, a modern responsive front end framework. Bootstrap has excellent an excellent and easy to use grid system for making a responsive webpage if your in a mobile view to a large screen or tablet.
+
+- [Heroku](https://id.heroku.com/login)
+    -  **Heroku** is used for my webpage deployment. My code is committed to Heroku and add a requirements text file and procfile so Heroku knows which software has to be installed and what program my code is running.
+
+## Testing Riddle game
+
+1. Google Chrome - HTML / Javascript / Jquery / CSS where all tested through the google chrome developer tool. Error message would appear in the console if anything was detected. Errors where displayed with a file location and which line the fault was on. Google chrome developer tools has a responsive section in which my webpage could be tested on many different screen sizes to make sure everything was working correctly for any users screen. 
+
+2. Flask  - Jinja has a built in debug tool. Any Python code that isn't formatted correctly or a response that is being processed to the backend an error message is displayed and the webpage is stopped at the current point the code is broken.
+
+3. Webpage scenario testing was carried out on the login page, register page, recipe adding and search fields making sure the user was alerted if an input had been left blank or incorrectly filled in.
 
 
-    
+## Deployment
+
+My webpage is deployed through Heroku. I created a Heroku app to which I created a Github repository thorough the command line. i added a requirements text file and a Procfile so Heroku knows what to install and what program my code is running. Once created I added all my code to Heroku and committed my work ready to be pushed to the Heroku branch. 
