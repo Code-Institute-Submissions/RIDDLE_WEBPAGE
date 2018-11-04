@@ -1,6 +1,6 @@
 ## Riddle Game Milestone Project
 
-#Riddle Game 
+Riddle Game 
 
 
 [Play the Riddle Game]( https://riddle-game-milestone-project.herokuapp.com/)
