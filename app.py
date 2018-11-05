@@ -4,7 +4,7 @@ import json
 from flask import Flask, render_template, request, redirect, flash, url_for
 
 app = Flask(__name__)
-app.secret_key = os.environ.get("KEY")
+app.secret_key = os.environ.get("KE")
 
 # <------------- FILE HANDLER --------------->
 
@@ -162,4 +162,4 @@ def endgame(username):
 if __name__ == '__main__':
     app.run(host=os.environ.get('IP'),
     port=int(os.environ.get('PORT')),
-    debug=True)
+    debug=False)
