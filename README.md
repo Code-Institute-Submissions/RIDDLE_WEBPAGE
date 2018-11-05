@@ -48,4 +48,4 @@ How does the Riddle game work :
 
 ## Deployment
 
-My webpage is deployed through Heroku. I created a Heroku app to which I created a Github repository thorough the command line. i added a requirements text file and a Procfile so Heroku knows what to install and what program my code is running. Once created I added all my code to Heroku and committed my work ready to be pushed to the Heroku branch. 
+My webpage is deployed through Heroku. I created a Heroku app to which I created a Github repository thorough the command line. I added a requirements text file and a Procfile so Heroku knows what to install and what program my code is running. Once created I added all my code to Heroku and committed my work ready to be pushed to the Heroku branch. 
