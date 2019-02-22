@@ -8,12 +8,14 @@ app.secret_key = os.environ.get("KEY")
 
 # <------------- FILE HANDLER --------------->
 
+
 def write_to_file(filename, data):
     """ handle process of writing to file """
     with open(filename, "a") as file:
         file.writelines(data)
 
 # <---------------GUESSES HANDLING ----------->
+
 
 def display_guesses():
     guesses = []
@@ -24,10 +26,11 @@ def display_guesses():
             guesses.append(lines)
             
     return guesses
-    
+
+
 def add_guesses(username, request):
     """ writes guesses to csv file"""
-    
+
     guess = (username, request)
 
     with open("data/new_guesses.csv", "a") as csv_file:
@@ -42,6 +45,7 @@ def correct_guess(username):
     current_riddle[username] += 1
     leaderboard_score[username] += 1
 
+
 def incorrect_guess(username, guess):
     """ writes guesses to csv file"""
     
@@ -55,12 +59,22 @@ def incorrect_guess(username, guess):
         leaderboard_score[username] -= 1
 
 
+def skip_question(username):
+    """ skip next question """
+    current_riddle[username] += 1
+
+    if leaderboard_score[username] > 0:
+        leaderboard_score[username] -= 2
+
 # <------------  DICTIONARY VARIABLES FOR GAME PLAY ---------->
+
 
 leaderboard_score = {}
 current_riddle = {}
 
 # <-------------------- LOGIN PAGE ---------------------->
+
+
 @app.route("/")
 @app.route ("/", methods=["POST", "GET"])
 def index():
@@ -76,41 +90,52 @@ def index():
     return render_template("index.html")
     
 
-
 # <---------------------- MAIN PAGE ------------------------->
+
 
 @app.route("/<username>/riddle/", methods=["POST", "GET"])
 def riddle(username):
-    
     with open("data/riddle.json", "r") as json_data:
         data = json.load(json_data)
         
     length = len(data)
-    
     guesses = display_guesses()
-    
+
     if request.method == "POST":
-        
-        guess = request.form["guess"]
-        
-        if guess.upper() == data[current_riddle[username]]["answer"].upper():
+
+        guess = request.form['guess']
+
+        if guess.upper() == data[current_riddle[username]]["answer"].upper() and not 'next' in request.form:
             if length == current_riddle[username] + 1:
-                write_to_file("data/leaderboard.csv", username  + "," + str(leaderboard_score[username] +1) +  "\n")
+                write_to_file("data/leaderboard.csv", username + "," + str(leaderboard_score[username] +1) +  "\n")
                 return redirect(url_for("endgame", username=username))
             else:
                 correct_guess(username)
+
+        elif 'next' in request.form:
+
+            if length == current_riddle[username] + 1:
+                write_to_file("data/leaderboard.csv", username + "," + str(leaderboard_score[username]) + "\n")
+                return redirect(url_for("endgame", username=username))
+            else:
+                skip_question(username)
+
         else:
             incorrect_guess(username, guess)
             guesses = display_guesses()
-        
-    
-    return render_template("riddle.html", username=username,data=data,current=current_riddle[username], riddle_length=length, score=leaderboard_score[username], guess=guesses)
+
+    return render_template("riddle.html", username=username,
+                           data=data,current=current_riddle[username],
+                           riddle_length=length,
+                           score=leaderboard_score[username],
+                           guess=guesses)
+
 
 # <-------------- ADDING YOUR OWN RIDDLES -------------->
 
-@app.route('/addriddle', methods=["POST","GET"])
+
+@app.route('/addriddle', methods=["POST", "GET"])
 def add_riddle():
-    
     riddles = []
 
     with open("data/riddle.json", "r") as json_data:
@@ -120,17 +145,35 @@ def add_riddle():
 
     if request.method == "POST":
         flash("Your riddle has been uploaded, thank you! ")
-        riddle = {"riddle": request.form["form-question"].replace(",", ""),"answer": request.form["form-answer"].replace(",", "")}
+        riddle = {
+            "id": riddles[-1]["id"] + 1,
+            "riddle": request.form["form-question"].replace(",", ""),
+            "answer": request.form["form-answer"].replace(",", ""),
+        }
 
         riddles.append(riddle)
 
-        with open("data/riddle.json", "w") as json_data:    
-            json.dump(riddles,json_data, indent=4)
+        with open("data/riddle.json", "w") as json_data:
+            json.dump(riddles, json_data, indent=4)
 
     return render_template("add_riddle.html")
-    
-    
+
+
+# <---------------- VIEW ALL RIDDLES ADDED --------------->
+
+@app.route('/viewriddles/')
+def view_riddles():
+    riddles = []
+
+    with open("data/riddle.json", "r") as json_data:
+        data = json.load(json_data)
+        for lines in data:
+            riddles.append(lines)
+
+    return render_template('view_riddles.html', riddles=riddles)
+
 # <--------------- END OF GAME / LEADERBOARD -------------->
+
 
 @app.route("/leaderboard")
 def leaderboard():
@@ -160,6 +203,4 @@ def endgame(username):
     
     
 if __name__ == '__main__':
-    app.run(host=os.environ.get('IP'),
-    port=int(os.environ.get('PORT')),
-    debug=False)
+    app.run(debug=True)

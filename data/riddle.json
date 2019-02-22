@@ -1,22 +1,37 @@
 [
     {
-        "riddle": "When is the best time to go to the dentist?", 
-        "answer": "Tooth-Hurty"
-    }, 
+        "riddle": "When is the best time to go to the dentist?",
+        "answer": "Tooth-Hurty",
+        "id": 1
+    },
     {
-        "riddle": "I have a ring, but no hands. I used to be plugged into the wall but now I follow you every where. What am I?", 
-        "answer": "A Telephone"
-    }, 
+        "riddle": "I have a ring, but no hands. I used to be plugged into the wall but now I follow you every where. What am I?",
+        "answer": "A Telephone",
+        "id": 2
+    },
     {
-        "riddle": "What season dose Humpty Dumpty hate the most?", 
-        "answer": "Fall"
-    }, 
+        "riddle": "What season dose Humpty Dumpty hate the most?",
+        "answer": "Fall",
+        "id": 3
+    },
     {
-        "riddle": "What do you call a can opener that doesn\u2019t work?", 
-        "answer": "A cant opener"
-    }, 
+        "riddle": "What do you call a can opener that doesn\u2019t work?",
+        "answer": "A cant opener",
+        "id": 4
+    },
     {
-        "riddle": "A plane crashes directly on the border of the US and Canada. Where do they bury the survivors?", 
-        "answer": "You dont bury survivors"
+        "riddle": "A plane crashes directly on the border of the US and Canada. Where do they bury the survivors?",
+        "answer": "You dont bury survivors",
+        "id": 5
+    },
+    {
+        "riddle": "If you have a bee in your hand what do you have in your eye?",
+        "answer": "Beauty because beauty is in the eye of the bee-holder!",
+        "id": 6
+    },
+    {
+        "id": 7,
+        "riddle": "I have eight to spare and am covered with hair. What am I?",
+        "answer": "A cat"
     }
 ]

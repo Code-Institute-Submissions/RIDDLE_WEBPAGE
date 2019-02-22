@@ -8,7 +8,7 @@
                     <small>{{ username|capitalize }}!</small>
                     <small class="score" value='0'>{{ score }}</small>
                 </h1>
-                <p class="main-para">Below is a riddle to solve. Once correct you will be shown a new riddle. Guess them correctly and earn 1 point. Incorrect guesses will loose 1 point. Finish the game and become top of the leaderboard.</p>
+                <p class="main-para">Below is a riddle to solve. Once correct you will be shown a new riddle and earn 1 point. Incorrect guesses will loose 1 point. Click next question and lose 2 points. Finish the game and become top of the leaderboard.</p>
 
                 <p>You have completed {{ current }} out of {{ riddle_length}} !!</p>
                 
@@ -16,8 +16,9 @@
                 
                 <div class="riddle-display-box mt-4 col-lg-12">
                     <form method="POST" class="guess-form">
-                        <input type="text" name="guess" class="guess" placeholder="Type your guess.." required>
-                        <input class="guess-Btn" type="submit" value="Try guess">
+                        <input type="text" name="guess" class="guess" placeholder="Type your guess..">
+                        <input class="Btn btn-info mt-2" name='guess' type="submit" value="Try guess">
+                        <input class="Btn btn-danger mt-2" name='next' type="submit" value="Next Question">
                     </form>
                 </div>
             </div>
