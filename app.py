@@ -63,8 +63,10 @@ def skip_question(username):
     """ skip next question """
     current_riddle[username] += 1
 
-    if leaderboard_score[username] > 0:
+    if leaderboard_score[username] > 2:
         leaderboard_score[username] -= 2
+    else:
+        leaderboard_score[username] = 0
 
 # <------------  DICTIONARY VARIABLES FOR GAME PLAY ---------->
 
@@ -134,7 +136,7 @@ def riddle(username):
 # <-------------- ADDING YOUR OWN RIDDLES -------------->
 
 
-@app.route('/addriddle', methods=["POST", "GET"])
+@app.route('/addriddle/', methods=["POST", "GET"])
 def add_riddle():
     riddles = []
 
@@ -194,7 +196,6 @@ def leaderboard():
     else:
         return render_template("leaderboard.html", score=sorted_final_scores)
 
-    
 
 @app.route("/<username>/riddle/endgame/")
 def endgame(username):
