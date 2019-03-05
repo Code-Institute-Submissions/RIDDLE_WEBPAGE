@@ -126,8 +126,7 @@ body {
 .endgamebtn {
   margin: auto;
 }
-/* <------------ ADD RIDDLE FORM ------------>*/
-
+/* <-ADD RIDDLE FORM ->*/
 .add-riddle-one {
   font-size: 1.7em;
 }
@@ -146,7 +145,7 @@ body {
 .riddle-form {
   text-align: center;
 }
-/*<-------------- END OF GAME / LEADERBOARD------------->*/
+/*<- END OF GAME / LEADERBOARD ->*/
 .congrats {
   width: 100%;
   font-size: 3em;
@@ -175,7 +174,7 @@ body {
   padding: 5px 0;
 }
 
-/*<-------------- FOOTER -------------------->*/
+/*<- FOOTER ->*/
 
 .footer {
   background-color: #212529;
@@ -188,7 +187,7 @@ body {
 }
 
 
-/*<--------------- MEDIA QUERIES ---------------->*/
+/*<- MEDIA QUERIES ->*/
 
 @media (max-width: 375px) {
   .main-display {
@@ -239,8 +238,7 @@ body {
   .leaderboard-person {
   font-size: 1em;
   padding: 5px 0;
-}
-  
+  }
 }
 
 @media screen and (max-width: 576px) and (min-width: 376px) {
