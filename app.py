@@ -88,7 +88,7 @@ def riddle(username):
 
     if request.method == "POST":
         guess = request.form['guess']
-        if guess.upper() == data[current_riddle[username]]["answer"].upper() and not 'next' in request.form:
+        if guess.upper() == data[current_riddle[username]]["answer"].upper() and 'next' not in request.form:
             if length == current_riddle[username] + 1:
                 write_to_file("data/leaderboard.csv", username + "," + str(leaderboard_score[username] + 1) + "\n")
                 return redirect(url_for("endgame", username=username))
@@ -165,5 +165,5 @@ def endgame(username):
 
 if __name__ == '__main__':
     app.run(host=os.environ.get('IP'),
-            port=int(os.environ.get('PORT')),
+            port=(os.environ.get('PORT')),
             debug=False)
