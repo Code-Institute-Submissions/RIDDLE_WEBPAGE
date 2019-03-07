@@ -3,7 +3,7 @@ body {
   height: 100vh;
 }
 
-/*<---------------- LOGIN PAGE ----------------------->*/
+/*<- LOGIN PAGE ->*/
 .main-login {
   display: -ms-flexbox;
   display: flex;
@@ -31,13 +31,11 @@ body {
   flex-direction: column;
 }
 .form-signin > h1 {
-  -webkit-text-stroke: 2px black;
-  font-size: 3em;
-  color: white;
-  background-color: #343a4056;
+  color: black;
+  background-color: #75757500;
   border-radius: 5px;
   text-align: center;
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: Andale Mono, monospace;
 }
 .form-signin .checkbox {
   font-weight: 400;
@@ -50,7 +48,7 @@ body {
   font-size: 16px;
 }
 
-/*<------------------MAIN RIDDLE PAGE ------------------>*/
+/*<--MAIN RIDDLE PAGE-->*/
 
 .nav-link {
   display: inline-block;
