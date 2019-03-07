@@ -88,15 +88,22 @@ def riddle(username):
 
     if request.method == "POST":
         guess = request.form['guess']
-        if guess.upper() == data[current_riddle[username]]["answer"].upper() and 'next' not in request.form:
+        if guess.upper() == data[current_riddle[username]]["answer"].upper() \
+                and 'next' not in request.form:
             if length == current_riddle[username] + 1:
-                write_to_file("data/leaderboard.csv", username + "," + str(leaderboard_score[username] + 1) + "\n")
+                write_to_file("data/leaderboard.csv", username + "," +
+                              str(leaderboard_score[username] + 1) +
+                              "\n")
+
                 return redirect(url_for("endgame", username=username))
             else:
                 correct_guess(username)
         elif 'next' in request.form:
             if length == current_riddle[username] + 1:
-                write_to_file("data/leaderboard.csv", username + "," + str(leaderboard_score[username]) + "\n")
+                write_to_file("data/leaderboard.csv",
+                              username + "," +
+                              str(leaderboard_score[username]) + "\n")
+
                 return redirect(url_for("endgame", username=username))
             else:
                 skip_question(username)
@@ -149,7 +156,9 @@ def leaderboard():
         csv_reader = csv.reader(csv_file)
         for data in csv_reader:
             peoples_score.append(tuple(data))
-    sorted_final_scores = (sorted(peoples_score, key=lambda people: int(people[1]), reverse=True))
+    sorted_final_scores = (sorted(peoples_score,
+                                  key=lambda people: int(people[1]),
+                                  reverse=True))
 
     if len(peoples_score) == 0:
         sorted_final_scores = 0
