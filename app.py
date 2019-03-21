@@ -17,18 +17,14 @@ def display_guesses():
     guesses = []
     with open("data/new_guesses.csv", "r") as guess_data:
         all_guesses = csv.reader(guess_data)
-
         for lines in all_guesses:
             guesses.append(lines)
-
     return guesses
 
 
 def add_guesses(username, request):
     """ writes guesses to csv file"""
-
     guess = (username, request)
-
     with open("data/new_guesses.csv", "a") as csv_file:
         writer = csv.writer(csv_file)
         writer.writerow(guess)

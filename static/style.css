@@ -1,187 +1,194 @@
 body {
-  background-color: #f5f5f5;
-  height: 100vh;
+    background-color: #f5f5f5;
+    height: 100vh;
 }
 
 /*<- LOGIN PAGE ->*/
 .main-login {
-  display: -ms-flexbox;
-  display: flex;
-  -ms-flex-align: center;
-  align-items: center;
-  align-content: center;
-  justify-content: center;
+    display: -ms-flexbox;
+    display: flex;
+    -ms-flex-align: center;
+    align-items: center;
+    align-content: center;
+    justify-content: center;
 
 }
 .backgroundImage {
-  background-image: url("https://images.pexels.com/photos/6375/quote-chalk-think-words.jpg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260");
-  background-size: cover;
-  background-position: center;
-  background-repeat: no-repeat;
-  min-height: 100vh;
-  width: 100%;
+    background-image: url("https://images.pexels.com/photos/6375/quote-chalk-think-words.jpg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260");
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    min-height: 100vh;
+    width: 100%;
 }
 .form-signin {
-  width: 100%;
-  max-width: 330px;
-  display: flex;
-  justify-content: center;
-  align-content: center;
-  align-items: center;
-  flex-direction: column;
+    width: 100%;
+    max-width: 330px;
+    display: flex;
+    justify-content: center;
+    align-content: center;
+    align-items: center;
+    flex-direction: column;
 }
 .form-signin > h1 {
-  color: black;
-  background-color: #75757500;
-  border-radius: 5px;
-  text-align: center;
-  font-family: Andale Mono, monospace;
+    color: black;
+    background-color: #75757500;
+    border-radius: 5px;
+    text-align: center;
+    font-family: Andale Mono, monospace;
 }
 .form-signin .checkbox {
-  font-weight: 400;
+    font-weight: 400;
 }
 .form-signin .form-control {
-  position: relative;
-  box-sizing: border-box;
-  height: auto;
-  padding: 10px;
-  font-size: 16px;
+    position: relative;
+    box-sizing: border-box;
+    height: auto;
+    padding: 10px;
+    font-size: 16px;
 }
 
 /*<--MAIN RIDDLE PAGE-->*/
 
 .nav-link {
-  display: inline-block;
-  margin: 0 10px;
+    display: inline-block;
+    margin: 0 10px;
 }
 .main-display {
-  text-align: center;
-  margin: 45px auto 0 auto !important;
-  padding-top: 10px !important;
+    text-align: center;
+    margin: 45px auto 0 auto !important;
+    padding-top: 10px !important;
 }
 .reveal-box {
-  text-align: center;
-  max-height: 200px;
-  overflow: auto;
-  display: none;
-  transition: 0.4s all;
+    text-align: center;
+    max-height: 200px;
+    overflow: auto;
+    display: none;
+    transition: 0.4s all;
 }
 .reveal-box-active {
-  display: block;
-  transition: 0.4s all;
+    display: block;
+    transition: 0.4s all;
 }
 .reveal {
-  background-color: #343a40;
-  color: white;
-  border-radius: 5px;
-  margin: 30px auto;
-  display: inherit;
+    background-color: #343a40;
+    color: white;
+    border-radius: 5px;
+    margin: 30px auto;
+    display: inherit;
 }
 .score {
-  background-color: rgb(4, 253, 25);
-  margin-left: 20px;
-  border-radius: 10px;
-  padding: 2px;
+    background-color: rgb(4, 253, 25);
+    margin-left: 20px;
+    border-radius: 10px;
+    padding: 2px;
 }
 .guess_list{
-  list-style-type: none;
-  color: #343a40;
+    list-style-type: none;
+    color: #343a40;
 }
 /* Question display and your answer field */
 .question {
-  font-size: 2em;
-  margin: 20px 0;
-  padding: 10px 0;
-  background-color: #343a40;
-  color: white;
-  border-radius: 10px;
+    font-size: 2em;
+    margin: 20px 0;
+    padding: 10px 0;
+    background-color: #343a40;
+    color: white;
+    border-radius: 10px;
 }
 .guess {
-  color: white;
-  font-size: 1.4em;
-  border-radius: 5px;
-  margin: auto 5px;
-  padding: 15px 0;
-  text-align: center;
-  width: 100%;
-  border: none;
-  background-color: #343a40;
+    color: white;
+    font-size: 1.4em;
+    border-radius: 5px;
+    margin: auto 5px;
+    padding: 15px 0;
+    text-align: center;
+    width: 100%;
+    border: none;
+    background-color: #343a40;
 }
 .guess:focus {
-  outline: none;
+    outline: none;
 }
 .guess-form input::placeholder {
-  color: white;
+    color: white;
 }
 .btn-guess {
-  background-color: #41404f;
-  color: white;
-  margin: auto;
-  width: 200px;
-  border-radius: 5px;
-  margin-top: 10px;
+    background-color: #41404f;
+    color: white;
+    margin: auto;
+    width: 200px;
+    border-radius: 5px;
+    margin-top: 10px;
 }
 .endgamebtn {
-  margin: auto;
+    margin: auto;
 }
 /* <-ADD RIDDLE FORM ->*/
 .add-riddle-one {
-  font-size: 1.7em;
+    font-size: 1.7em;
 }
 .add-riddle-two {
-  font-size: 1.3em;
+    font-size: 1.3em;
 }
 .form-riddle {
-  margin-top: 100px;
-  display: -ms-flexbox;
-  display: flex;
-  -ms-flex-align: center;
-  align-items: center;
-  align-content: center;
-  justify-content: center;
+    margin-top: 100px;
+    display: -ms-flexbox;
+    display: flex;
+    -ms-flex-align: center;
+    align-items: center;
+    align-content: center;
+    justify-content: center;
 }
 .riddle-form {
-  text-align: center;
+    text-align: center;
 }
 /*<- END OF GAME / LEADERBOARD ->*/
 .congrats {
-  width: 100%;
-  font-size: 3em;
+    width: 100%;
+    font-size: 3em;
 }
 .congrats-para {
-  width: 100%;
-  font-size: 2em;
+    width: 100%;
+    font-size: 2em;
 }
 .leaderboard-title {
-  color: white;
-  background-color: #343a40;
-  text-align: center;
-  padding: 10px 0;
+    color: white;
+    background-color: #343a40;
+    text-align: center;
+    padding: 10px 0;
 }
 .leaderboard {
-  margin-top: 80px;
-  text-align: center;
-  width: 100%;
+    margin-top: 80px;
+    text-align: center;
+    width: 100%;
 }
 .leaderboard-list {
-  list-style: none;
-  padding: 10px 0;
+    list-style: none;
+    padding: 10px 0;
 }
 .leaderboard-person {
-  font-size: 1.5em;
-  padding: 5px 0;
+    font-size: 1.5em;
+    padding: 5px 0;
 }
 
+/*<- ALL RIDDLES ->*/
+.riddle-display {
+    white-space: normal !important;
+}
+#riddles_display{
+    text-align: center;
+}
 /*<- FOOTER ->*/
 
 .footer {
-  background-color: #212529;
-  color: white;
-  height: 25px;
-  text-align: center;
-  margin-top: 50px;
-  position: fixed;
-  bottom: 0;
+    background-color: #212529;
+    color: white;
+    height: 25px;
+    text-align: center;
+    margin-top: 50px;
+    position: fixed;
+    bottom: 0;
 }
 
 
