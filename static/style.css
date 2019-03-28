@@ -178,6 +178,7 @@ body {
 }
 #riddles_display{
     text-align: center;
+    margin:auto;
 }
 /*<- FOOTER ->*/
 
@@ -244,11 +245,17 @@ body {
   font-size: 1em;
   padding: 5px 0;
   }
+  .display-3{
+    font-size: 2em;
+  }
 }
 
 @media screen and (max-width: 576px) and (min-width: 376px) {
   .riddle-input {
     margin: 10px 20px;
+  }
+  .display-3{
+    font-size: 2.5em;
   }
   .riddle-Btn {
     width: 250px;

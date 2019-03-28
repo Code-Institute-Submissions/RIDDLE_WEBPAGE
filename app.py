@@ -93,6 +93,7 @@ def riddle(username):
 
                 return redirect(url_for("endgame", username=username))
             else:
+                print(guess)
                 correct_guess(username)
         elif 'next' in request.form:
             if length == current_riddle[username] + 1:
